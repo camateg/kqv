@@ -1,0 +1,33 @@
+%html
+	%head
+		%meta{:name=>'viewport',:content=>'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'}
+		%title
+			KQV Junk for
+			=@date
+		%link{:href=>'style.css',:rel=>'stylesheet'}
+		%link{:href=>'//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css',:rel=>'stylesheet'}
+		%script{:src=>'//code.jquery.com/jquery-1.10.2.min.js'}
+		%script{:src=>'//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'}
+		%script{:src=>'day.js'}
+	%body
+		.container-fluid.outer
+			.row
+				%span.span3
+					%h3.text-center
+						%a{:href=>@src_url,:target=>'_kqv'}
+							='Programs for ' + @date
+					.panel-group{:id=>"accordion",:role=>"tablist",:"aria-multiselectable"=>"false"}
+						- for show in @shows
+							.panel.panel-default.text-center
+								.panel-heading{:role=>"tab",:id=>"heading_"+show.idx}
+									%h4.panel-title.text-center
+										%a.collapsed{:"data-toggle"=>"collapse",:"data-parent"=>"#accordion",:href=>"#contents_"+show.idx,:"aria-controls"=>"contents_"+show.idx}
+											=show.title + ' // ' + show.start + ' - ' + show.end
+											-if show.show.length > 0
+												=" (more)"
+								- if show.show.length > 0
+									%div{:id=>"contents_"+show.idx,:class=>"panel-collapse collapse",:role=>"tabpanel",:"aria-labelledby"=>"heading_"+show.ct}
+										.slot-content
+											- for ashow in show.show
+												.show
+													=ashow	
