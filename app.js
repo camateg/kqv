@@ -3,6 +3,7 @@ var cons = require('consolidate')
    ,express = require('express')
    ,cheerio = require('cheerio')
    ,strftime = require('strftime').strftimeTZ
+   ,RSS = require('rss');
 
 require('coffee-script/register');
 
@@ -20,6 +21,7 @@ app.listen(port);
 
 app.get('/', set_today, get_shows, render);
 app.get('/json', set_today, get_shows, render_json);
+app.get('/rss', set_today, get_shows, render_rss);
 app.get('/:date', set_today, get_shows, render);
 app.get('/json/:date', set_today, get_shows, render_json);
 
@@ -105,4 +107,26 @@ function render(req, res) {
 function render_json(req, res) {
   res.stash = res.stash || {};
   res.send(res.stash.json);
+}
+
+function render_rss(req, res) {
+  res.stash = res.stash || {};
+ 
+  var feed = new RSS(
+    {
+      "title": "KQV programming",
+      "feed_url": "https://kqv.herokuapp.com/rss",
+      "site_url":  res.stash.json.src_url
+    } 
+  );
+
+  for(ct=0;ct<res.stash.json.shows.length;ct++) {
+    feed.item(
+      { "title": res.stash.json.shows[ct].title,
+        "description": res.stash.json.shows[ct].title
+      });
+    console.log(res.stash.json.shows[ct]);
+  }
+
+  res.send(feed.xml({indent: true})); 
 }
