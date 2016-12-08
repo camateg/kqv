@@ -10,5 +10,6 @@
     , "express"    	: "3.4.x" 
     , "cheerio"    	: "0.13.x"
     , "strftime"	: "0.8.x"
+    , "rss"		: "x"
   }
 }    
