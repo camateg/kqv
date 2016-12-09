@@ -122,7 +122,7 @@ function render_rss(req, res) {
 
   for(ct=0;ct<res.stash.json.shows.length;ct++) {
     feed.item(
-      { "title": res.stash.json.shows[ct].title + res.stash.json.shows[ct].start,
+      { "title": res.stash.json.shows[ct].title + ' @ ' + res.stash.json.shows[ct].start,
         "description": res.stash.json.shows[ct].title
       });
     console.log(res.stash.json.shows[ct]);
