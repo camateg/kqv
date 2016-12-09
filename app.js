@@ -121,9 +121,13 @@ function render_rss(req, res) {
   );
 
   for(ct=0;ct<res.stash.json.shows.length;ct++) {
+    var descrip = "";
+    for(ct1=0;ct1<res.stash.json.shows[ct].show.length;ct1++) {
+      descrip += "<br />" + res.stash.json.shows[ct].show[ct1];
+    }; 
     feed.item(
       { "title": res.stash.json.shows[ct].title + ' @ ' + res.stash.json.shows[ct].start,
-        "description": res.stash.json.shows[ct].title
+        "description": "<b>" + res.stash.json.shows[ct].title + "</b>" + descrip
       });
   }
 
