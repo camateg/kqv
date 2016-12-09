@@ -125,8 +125,8 @@ function render_rss(req, res) {
       { "title": res.stash.json.shows[ct].title + ' @ ' + res.stash.json.shows[ct].start,
         "description": res.stash.json.shows[ct].title
       });
-    console.log(res.stash.json.shows[ct]);
   }
 
+  res.setHeader('content-type', 'application/rss+xml');
   res.send(feed.xml({indent: true})); 
 }
