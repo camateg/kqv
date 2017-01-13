@@ -4,4 +4,5 @@
     padding: 12px 12px 12px 30px;
 }
 .row { padding: 10px; }
-.panel-default > .panel-heading { background-color: #dde !important; }
+.navbar-brand { color: #fff !important; }
+#.panel-default > .panel-heading { background-color: #dde !important; }
