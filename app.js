@@ -68,11 +68,11 @@ function get_shows(req, res, next) {
         tmp['title'] = titles[ct];
         tmp['idx'] = ct;
         var tmp_contents = contents[ct].replace(/<br>/g,' ').replace(/<hr>/g,'---').replace(scruba,'').replace(/<p>/g,'').replace(/<\/a>/,'').replace(/<\/p>/,'').trim();
-        var matches = tmp_contents.match(/(\d+\:\d+\:\d+\s(AM|PM))\s+\-\s+(\d+\:\d+\:\d+\s(AM|PM))/);
+        var matches = tmp_contents.match(/(\d+\:\d+)\:\d+\s(AM|PM)\s+\-\s+(\d+\:\d+)\:\d+\s(AM|PM)/);
 
         if (matches != null) {
-          tmp['start'] = matches[1];
-	  tmp['end'] = matches[3];
+          tmp['start'] = matches[1] + matches[2];
+	  tmp['end'] = matches[3] + matches[4];
 	  var cont_temp = tmp_contents.replace(matches[0],'').replace(/^\s+/,"");;
           var show_tmp = cont_temp.split('---');
           if (show_tmp[0] == '') {
