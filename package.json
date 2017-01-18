@@ -19,6 +19,6 @@
     "zombie": "^5.0.5"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/.bin/mocha"
   }
 }
