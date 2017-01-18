@@ -2,4 +2,4 @@ language: node.js
 node_js:
   - "6"
 script:
-  - "npm test"
+  - "./node_modules/.bin/mocha"
