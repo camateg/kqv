@@ -10,7 +10,8 @@
     "express": "3.4.x",
     "cheerio": "0.13.x",
     "strftime": "0.8.x",
-    "rss": "x"
+    "rss": "x",
+    "mocha": "^3.2.0"
   },
   "devDependencies": {
     "mocha": "^3.2.0",
