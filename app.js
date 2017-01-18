@@ -17,7 +17,12 @@ app.engine('hamlc', cons['haml-coffee']);
 
 var port = process.env.PORT || 5000;
 
-app.listen(port);
+module.exports = app;
+if (!module.parent) {
+  app.listen(port, function() {
+    console.log("Server listening on port " + port);
+  });
+}
 
 app.get('/', set_today, get_shows, render);
 app.get('/json', set_today, get_shows, render_json);
