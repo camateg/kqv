@@ -44,12 +44,6 @@ describe('main page', function() {
     done();
   });
 
-  it('should have a feed', function(done) {
-    this.browser.visit('/json/shows');
-    this.browser.text.should.be.json;
-    done();
-  });
-
   after(function(done) {
     this.server.close(done);
   });
