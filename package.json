@@ -3,13 +3,22 @@
   "version": "0.0.1",
   "description": "What's on KQV?",
   "dependencies": {
-      "consolidate"     : "0.9.x"
-    , "coffee-script"   : "1.8.x"
-    , "haml-coffee"     : "1.13.x"
-    , "request"		: "2.33.x"
-    , "express"    	: "3.4.x" 
-    , "cheerio"    	: "0.13.x"
-    , "strftime"	: "0.8.x"
-    , "rss"		: "x"
+    "consolidate": "0.9.x",
+    "coffee-script": "1.8.x",
+    "haml-coffee": "1.13.x",
+    "request": "2.33.x",
+    "express": "3.4.x",
+    "cheerio": "0.13.x",
+    "strftime": "0.8.x",
+    "rss": "x",
+    "mocha": "^3.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "should": "^11.1.2",
+    "zombie": "^5.0.5"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
   }
-}    
+}
