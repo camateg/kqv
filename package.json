@@ -12,10 +12,10 @@
     "strftime": "0.8.x",
     "rss": "x"
   },
-  "scripts": {
-    "test": "mocha"
-  },
   "devDependencies": {
     "zombie": "^5.0.5"
+  },
+  "scripts": {
+    "test": "mocha"
   }
 }
