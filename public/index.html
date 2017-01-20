@@ -3,7 +3,12 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script
+  src="//code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
 <div ng-app="myApp" ng-controller="myCtrl"> 
@@ -19,15 +24,26 @@
 
 <table style="margin-top: 80px;" class="table table-striped">
     <tr ng-repeat="x in myShows">
-      <td>{{ x.title }}
-      <ul ng-repeat="y in x.show">
-       <li>{{ y }}</li>
-      </ul>
+      <td data-toggle="modal" data-target="#modal_{{$index}}">{{ x.title }}
+      <div id="modal_{{$index}}" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">{{ x.title }}</h4>
+            </div>
+            <div class="modal-body text-center">
+      	      <h4>{{x.start}}</h4>
+              <ul ng-repeat="y in x.show">
+                <li>{{ y }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
       </td>
       <td>{{ x.start }}</td>
       <td>{{ x.end }}</td>
     </tr>
-</div>
 </table>
 <br />
 

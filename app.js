@@ -5,15 +5,9 @@ var cons = require('consolidate')
    ,strftime = require('strftime').strftimeTZ
    ,RSS = require('rss');
 
-require('coffee-script/register');
-
 var app = express();
 
-app.set('views', __dirname + '/views');
-app.set('view engine', 'hamlc')
 app.use(express.static(__dirname+'/public'));
-app.engine('hamlc', cons['haml-coffee']);
-
 
 var port = process.env.PORT || 5000;
 
