@@ -24,7 +24,7 @@ if (!module.parent) {
   });
 }
 
-app.get('/', set_today, get_shows, render);
+app.get('/old', set_today, get_shows, render);
 app.get('/json', set_today, get_shows, render_json);
 app.get('/rss', set_today, get_shows, render_rss);
 app.get('/:date', set_today, get_shows, render);

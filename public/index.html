@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+
+<div ng-app="myApp" ng-controller="myCtrl"> 
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="navbar-brand">
+         KQV Shows
+      </div>
+    </div>
+  </div>
+</div>
+
+<table style="margin-top: 80px;" class="table table-striped">
+    <tr ng-repeat="x in myShows">
+      <td>{{ x.title }}
+      <ul ng-repeat="y in x.show">
+       <li>{{ y }}</li>
+      </ul>
+      </td>
+      <td>{{ x.start }}</td>
+      <td>{{ x.end }}</td>
+    </tr>
+</div>
+</table>
+
+<script>
+
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+  $http.get("/json").then(function (response) {
+      $scope.myShows = response.data.shows;
+  });
+});
+
+</script>
+
+</body>
+</html>
