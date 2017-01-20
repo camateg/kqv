@@ -24,11 +24,8 @@ if (!module.parent) {
   });
 }
 
-app.get('/old', set_today, get_shows, render);
 app.get('/json', set_today, get_shows, render_json);
 app.get('/rss', set_today, get_shows, render_rss);
-app.get('/:date', set_today, get_shows, render);
-app.get('/json/:date', set_today, get_shows, render_json);
 
 var root_url = 'http://kqv.com/radiohighlights.asp'
 
@@ -102,11 +99,6 @@ function get_shows(req, res, next) {
     }
   });
 
-}
-
-function render(req, res) {
-  res.stash = res.stash || {};
-  res.render('day',res.stash.json);
 }
 
 function render_json(req, res) {
