@@ -97,7 +97,7 @@ function get_shows(req, res, next) {
 
 function render_json(req, res) {
   res.stash = res.stash || {};
-  res.send(res.stash.json);
+  res.json(res.stash.json);
 }
 
 function render_rss(req, res) {
